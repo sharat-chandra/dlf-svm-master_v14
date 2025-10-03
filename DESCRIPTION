@@ -1,0 +1,32 @@
+Package: dlfsvm
+Type: Package
+Title: DPP4 Inhibitor Prediction Using Support Vector Machines
+Version: 1.0.1
+Date: 2024-10-03
+Authors@R: c(
+    person("Sharat", "Chandra", email = "sharat.chndr@gmail.com", role = c("aut", "cre")),
+    person("Shekhar", "Chandra", role = "aut")
+)
+Description: Provides machine learning-based prediction of DPP4 (Dipeptidyl Peptidase 4) 
+    inhibitory activity for small molecules. The package uses a pre-trained Support Vector 
+    Machine model with molecular descriptors and fingerprints to classify compounds into 
+    different activity levels. DPP4 is an important therapeutic target for type 2 diabetes 
+    treatment. The package includes functions for molecular descriptor calculation and 
+    activity prediction from SMILES chemical notation.
+License: MIT + file LICENSE
+LazyData: true
+Depends: R (>= 3.5.0)
+Imports: 
+    rcdk,
+    e1071,
+    fingerprint,
+    png
+Suggests:
+    testthat,
+    knitr,
+    rmarkdown
+URL: https://github.com/sharat-chandra/dlf-svm-master_v14
+BugReports: https://github.com/sharat-chandra/dlf-svm-master_v14/issues
+VignetteBuilder: knitr
+Encoding: UTF-8
+RoxygenNote: 7.0.0
