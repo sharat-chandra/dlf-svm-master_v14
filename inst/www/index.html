@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <title>Lead Finder</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/landing-page.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand topnav" href="#">SVMDLF</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#about">Home</a>
+                    </li>
+                    <li>
+                        <a href="#services">Draw</a>
+                    </li>
+                    <li>
+                        <a href="#result">Result</a>
+                    </li>
+                    <li>
+                        <a href="http://www.cdri.res.in/">CDRI</a>
+                    </li>
+                    <li>
+                        <a href="help.html">Help</a>
+                    </li>
+                    <li>
+                        <a href="TeamPage.html">Team</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+    <!-- Header -->
+    <a name="about"></a>
+    <div class="intro-header">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h1>SVM Based</h1>
+                        <h1>DPP4 Lead Finder</h1>
+                        <h3>A project by CDRI</h3>
+                        <hr class="intro-divider">
+                        <ul class="list-inline intro-social-buttons">
+                            <li>
+                                <a href="#services" class="btn btn-default btn-lg"><span class="network-name">Get Started</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.intro-header -->
+
+    <!-- Page Content -->
+
+	<a  name="services"></a>
+
+     <div class="content-section-a">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-sm-10">
+                 <div id="jsme_container"></div>
+                   <form>
+                       <input type="checkbox" id="canonic_check" onclick=show_smiles() >Canonical SMILES
+                   </form>
+                </div>
+                <div class="col-lg-2 col-lg-offset-2 col-sm-2">
+                   SMILES: 
+                  <b>
+                   <span id="smiles_container" >
+                   </span>
+                  </b>
+                 <br></br>
+                 <a href="#result" class="btn btn-default btn-lg"><span class="network-name" id="smileinbig">Get Result</span></a>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+
+    <a  name="result"></a>
+    <div class="content-section-a">
+
+        <div class="container">
+
+            <div class="row">
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">SMILES..</span>
+                <input type="text" class="form-control" placeholder="SMILES"
+                       aria-describedby="basic-addon1"
+                       name="smiles" id="smiles_container_b">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" id="smilein">Go!</button>
+                </span>
+              </div>
+              <div style="float;">
+                <select name="Example" id="optionList" onChange="document.getElementById('smiles_container_b').value = this.value";">
+                  <option value='' selected>Examples:</option>
+                  <option name="Example" value='C1=C(F)C(F)=CC(F)=C1C[C@H](CC(N3CCN2C(=NN=C2C(F)(F)F)C3)=O)N'>Sitagliptin</option>
+                  <option name="Example" value='C3=CC(C#N)=C(CN2C(N1CCC[C@@H](N)C1)=CC(=O)N(C)C2=O)C=C3'>Alogliptin</option>
+                </select>
+              </div>
+                          
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">RESULT</span>
+                <input type="textarea" class="form-control" placeholder="Output"
+                       aria-describedby="basic-addon2" id="fingerprintout">
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">Z-Score</span>
+                <input type="textarea" class="form-control" placeholder="OutputScore"
+                       aria-describedby="basic-addon2" id="fingerprintoutScore">
+              </div>
+              <div class="panel panel-primary">
+               <!-- Default panel contents -->
+               <div class="panel-heading">Lead finder result</div>
+               <div class="panel-body">
+                 <h3>Input Structure</h3>
+                 <img id="structimage" src=""/>
+               </div>
+               <table class="table">
+<!--
+                <tr><td>smiformula</td><td><p id="smiformula"></p></td></tr>
+                <tr><td>bonds</td><td><p id="bonds"></p></td></tr>
+                <tr><td>alogp</td><td><p id="algop"></p></td></tr>
+                <tr><td>hbondAcceptor</td><td><p id="hbondAcceptor"></p></td></tr>
+                <tr><td>hbondDonor</td><td><p id="hbondDonor"></p></td></tr>
+                <tr><td>heavyAtom</td><td><p id="heavyAtom"></p></td></tr>
+                <tr><td>ring</td><td><p id="ring"></p></td></tr>
+                <tr><td>rotbond</td><td><p id="rotbond"></p></td></tr>
+                <tr><td>tpsa</td><td><p id="tpsa"></p></td></tr>
+                <tr><td>weight</td><td><p id="weight"></p></td></tr>
+                <tr><td>xlogp</td><td><p id="xlogp"></p></td></tr>
+                <tr><td>totalcharge</td><td><p id="totalcharge"></p></td></tr>
+-->
+                <tr><td>Formula</td><td><p id="smiformula"></p></td></tr>
+                <tr><td>Molweight</td><td><p id="weight"></p></td></tr>
+                <tr><td>AlogP</td><td><p id="algop"></p></td></tr>
+                <tr><td>Atom Count</td><td><p id="heavyAtom"></p></td></tr>
+                <tr><td>Rotatable Bonds</td><td><p id="rotbond"></p></td></tr>
+                <tr><td>H-bond Acceptor</td><td><p id="hbondAcceptor"></p></td></tr>
+                <tr><td>H-bond Donor</td><td><p id="hbondDonor"></p></td></tr>
+                <tr><td>Bonds</td><td><p id="bonds"></p></td></tr>
+                <tr><td>Rings</td><td><p id="ring"></p></td></tr>
+                <tr><td>PolarSurface Area</td><td><p id="tpsa"></p></td></tr>
+                <tr><td>xlogP</td><td><p id="xlogp"></p></td></tr>
+                <tr><td>Total Charge</td><td><p id="totalcharge"></p></td></tr>
+		<tr><td>
+			<a href="#" class="btn btn-primary" onclick=CreateReportPDF()>Download Report</a>
+		</td><td></td></tr>
+               </table>
+             </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-a -->
+
+    <!-- /.banner -->
+
+	<div class="modal fade" id="LoadingModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog">
+	  </div>
+	</div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#services">Draw</a>
+                        </li>
+                        <li>
+                            <a href="#result">Result</a>
+                        </li>
+                        <li>
+                            <a href="http://www.cdri.res.in/">CDRI</a>
+                        </li>
+                        <li>
+                            <a href="help.html">Help</a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted small">Disclaimer: Compound structures submitted to web server will not be released to anyone under any circumstances.</p>
+                    <p class="copyright text-muted small">&copy; SVMDLF 2017</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- OpenCPU code -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" language="javascript" src="jsme/jsme.nocache.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="opencpu.js"></script>
+    <script src="app.js"></script>
+
+    <!-- PDF code -->
+		<script type="text/javascript" src="./pdf/jspdf.js"></script>
+		<script type="text/javascript" src="./pdf/libs/FileSaver.js/FileSaver.js"></script>
+		<script type="text/javascript" src="./pdf/libs/Blob.js/Blob.js"></script>
+		<script type="text/javascript" src="./pdf/libs/Blob.js/BlobBuilder.js"></script>
+
+		<script type="text/javascript" src="./pdf/libs/Deflate/deflate.js"></script>
+		<script type="text/javascript" src="./pdf/libs/Deflate/adler32cs.js"></script>
+
+		<script type="text/javascript" src="./pdf/jspdf.plugin.addimage.js"></script>
+		<script type="text/javascript" src="./pdf/jspdf.plugin.from_html.js"></script>
+		<script type="text/javascript" src="./pdf/jspdf.plugin.ie_below_9_shim.js"></script>
+		<script type="text/javascript" src="./pdf/jspdf.plugin.sillysvgrenderer.js"></script>
+		<script type="text/javascript" src="./pdf/jspdf.plugin.split_text_to_size.js"></script>
+		<script type="text/javascript" src="./pdf/jspdf.plugin.standard_fonts_metrics.js"></script>
+      
+    <script>
+        function jsmeOnLoad() {
+            jsmeApplet = new JSApplet.JSME("jsme_container", "720px", "480px", {
+            "options" : "newlook,star,nocanonize"
+        });
+            jsmeApplet.setNotifyStructuralChangeJSfunction("show_smiles");
+            document.JME = jsmeApplet;
+        }
+    
+        var patt=/\[([A-Za-z][a-z]?)H?\d*:\d+\]/g; //regexp pattern for numbered atom
+        function show_smiles() {
+           checkbox = document.getElementById("canonic_check");
+           if(checkbox.checked) {
+               jsmeApplet.options("canonize");
+           } else {
+               jsmeApplet.options("nocanonize");
+           }
+           smiles = jsmeApplet.smiles(); //atom that are colored are numbered
+           new_smiles = smiles.replace(patt, '<em>$1</em>');
+           document.getElementById("smiles_container").innerHTML = new_smiles
+           document.getElementById("smiles_container_b").value = new_smiles
+        }
+        
+        function readMoleculeFromTextArea() {
+            var jme = document.getElementById("jme_input_jme_modal").value;
+            jsmeApplet.readMolecule(jme);
+    	}
+        function readMOLFromTextArea() {
+            var mol = document.getElementById("jme_input_mol_modal").value;
+            jsmeApplet.readMolFile(mol); 
+    	}
+        function getMolfile() {
+            var data = document.JME.molFile();
+        	document.getElementById("jme_output_mol_modal").value = data;
+        }
+        function getMolfileSubmit() {
+            var data = document.JME.molFile();
+        	document.getElementById("jme_submit_mol_modal").value = data;
+        }
+        function getSmiles() {
+        	var data = document.JME.smiles();
+        	document.getElementById("jme_output_mol_modal").value = data;
+        }
+        function getJMEstring() {
+        	var data = document.JME.jmeFile();
+        	document.getElementById("jme_output_mol_modal").value = data;
+        }
+        
+        function CreateMolFile() {
+            var textbox = document.getElementById('jme_output_mol_modal');
+            var link = document.getElementById('sdfdownloadlink');
+            var makeTextFile = function (text) {
+                var textFile = null;
+                var data = new Blob([text], {type: 'text/plain'});
+                textFile = window.URL.createObjectURL(data);
+                return textFile;
+            };
+            
+            link.href = makeTextFile(textbox.value);
+            link.style.display = 'block';
+        }
+	
+	function CreateReportPDF() {
+		var doc = new jsPDF();
+		doc.text(20, 20, 'SVMDLF : Report');
+		var output = "Result : " + document.getElementById("fingerprintout").value;
+		var smiformula = "Formula : " +  document.getElementById("smiformula").innerHTML;
+		var alogp = "AlogP : " +  document.getElementById("algop").innerHTML;
+		var hbondAcceptor = "H-Bond Acceptor : " +  document.getElementById("hbondAcceptor").innerHTML;
+		var hbondDonor = "H-Bond Donor : " +  document.getElementById("hbondDonor").innerHTML;
+		var heavyAtom = "Atom Count : " +  document.getElementById("heavyAtom").innerHTML;
+		var ring = "Ring : " +  document.getElementById("ring").innerHTML;
+		var rotbond = "Rotatable Bonds : " +  document.getElementById("rotbond").innerHTML;
+		var tpsa = "Polar Surface Area : " +  document.getElementById("tpsa").innerHTML;
+		var weight = "Molweight  : " +  document.getElementById("weight").innerHTML;
+		var xlogp = "xlogP : " +  document.getElementById("xlogp").innerHTML;
+		var totalcharge = "Total Charge : " +  document.getElementById("totalcharge").innerHTML;
+		doc.text(20, 30, smiformula);
+		doc.text(20, 40, alogp);
+		doc.text(20, 50, hbondAcceptor);
+		doc.text(20, 60, hbondDonor);
+		doc.text(20, 70, heavyAtom);
+		doc.text(20, 80, ring);
+		doc.text(20, 90, rotbond);
+		doc.text(20, 100, tpsa);
+		doc.text(20, 110, weight);
+		doc.text(20, 120, xlogp);
+		doc.text(20, 130, totalcharge);
+		doc.text(20, 140, output);
+		doc.text(20, 160, 'Contact : Sharat Chandra, sharat.chndr@gmail.com');
+		doc.text(20, 170, 'Molecular and Structure Biology Division, CSIR-CDRI, India');
+		doc.save('Report.pdf');
+	}
+    </script>
+</body>
+</html>
